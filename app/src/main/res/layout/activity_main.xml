@@ -20,6 +20,7 @@
 
 
         <TextView
+            android:id="@+id/hello_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hello!"
@@ -31,10 +32,10 @@
             android:layout_marginBottom="250dp"/>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/randomize_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/buttonStart"
+            android:text="@string/random"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
