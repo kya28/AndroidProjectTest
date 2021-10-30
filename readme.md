@@ -18,4 +18,85 @@ fun collection(){
         helloTextView.text = letters.toString().replace("[", "").replace("]", "")
 
     }
-    ```
+```
+**Второе задание.** Используя жизненный цикл активности вывести в логе строки стихотворения в правильном порядке.
+***   
+``Ты видел деву на скале
+В одежде белой над волнами
+Когда, бушуя в бурной мгле,
+Играло море с берегами,
+Когда луч молний озарял
+Ее всечасно блеском алым
+И ветер бился и летал
+С ее летучим покрывалом?
+Прекрасно море в бурной мгле
+И небо в блесках без лазури;
+Но верь мне: дева на скале
+Прекрасней волн, небес и бури.``
+
+***
+***Жизненный цикл***
+```kotlin */
+class MainActivity : AppCompatActivity() {
+
+    private lateinit var helloTextView: TextView
+    private lateinit var randomizeButton: Button
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        helloTextView = findViewById(R.id.hello_text_view)
+        helloTextView.text = getString(R.string.app_name)
+        randomizeButton = findViewById(R.id.randomize_button)
+
+        if (savedInstanceState != null)
+            helloTextView.text = savedInstanceState.getString(VALUE)
+        else
+            randomize()
+
+
+        randomizeButton.setOnClickListener {
+            randomize()
+        }
+            Log.d(MY_OWN_LOG_TAG, "Ты видел деву на скале\n" +
+                        "В одежде белой над волнами")
+
+
+    }
+        override fun onStart() {
+            super.onStart()
+            Log.d(MY_OWN_LOG_TAG, "Когда, бушуя в бурной мгле,\n" +
+                    "Играло море с берегами,")
+        }
+
+        override fun onResume() {
+            super.onResume()
+            Log.d(MY_OWN_LOG_TAG, "Когда луч молний озарял\n" +
+                    "Ее всечасно блеском алым")
+        }
+
+        override fun onPause() {
+            super.onPause()
+            Log.d(MY_OWN_LOG_TAG, "И ветер бился и летал\n" +
+                    "С ее летучим покрывалом?")
+        }
+
+        override fun onStop() {
+            super.onStop()
+            Log.d(MY_OWN_LOG_TAG, "Прекрасно море в бурной мгле\n" +
+                    "И небо в блесках без лазури;")
+        }
+
+        override fun onRestart() {
+            super.onRestart()
+            Log.d(MY_OWN_LOG_TAG, "Ты видел деву на скале\n" +
+                    "В одежде белой над волнами")
+        }
+
+        override fun onDestroy() {
+            super.onDestroy()
+            Log.d(MY_OWN_LOG_TAG, "Но верь мне: дева на скале\n" +
+                    "Прекрасней волн, небес и бури.")
+        }
+
+```
